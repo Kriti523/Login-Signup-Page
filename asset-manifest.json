@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Kriti523/Login-Signup-Page.git/static/css/main.39b7567b.css",
+    "main.js": "/Kriti523/Login-Signup-Page.git/static/js/main.0daa5101.js",
+    "static/media/Screenshot__521_-ai-brush-removebg-mqi3w5y8.png": "/Kriti523/Login-Signup-Page.git/static/media/Screenshot__521_-ai-brush-removebg-mqi3w5y8.e8f533c9c6017c55bf06.png",
+    "index.html": "/Kriti523/Login-Signup-Page.git/index.html",
+    "main.39b7567b.css.map": "/Kriti523/Login-Signup-Page.git/static/css/main.39b7567b.css.map",
+    "main.0daa5101.js.map": "/Kriti523/Login-Signup-Page.git/static/js/main.0daa5101.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.39b7567b.css",
+    "static/js/main.0daa5101.js"
+  ]
+}

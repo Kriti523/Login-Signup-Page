@@ -1,3 +1,5 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/prop-types */
 import Header from "../components/header";
 import Signup from "../components/Signup";
 

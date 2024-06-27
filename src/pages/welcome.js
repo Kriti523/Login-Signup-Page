@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import clown from '../Images/Screenshot__521_-ai-brush-removebg-mqi3w5y8.png';
 
@@ -16,7 +17,7 @@ export default function Welcome({loginData}) {
                 />
             </div>
             <div className='flex flex-col items-center align-middle'>
-              <h1 className="mt-[-25px]  text-centre text-2xl font-extrabold  text-slate-500">
+              <h1 className="mt-[-25px]  text-center text-2xl font-extrabold  text-slate-500">
                 Heyyaaaaa!!!
                 </h1>
             

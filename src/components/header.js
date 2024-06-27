@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/react-in-jsx-scope */
 import {Link} from "react-router-dom";
 import clown from "../Images/Screenshot__521_-ai-brush-removebg-mqi3w5y8.png";
 

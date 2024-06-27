@@ -1,19 +1,18 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/prop-types */
 import { useState} from "react";
 import { loginFields } from "../constants/formFields";
 import FormAction from "./FormAction";
 import FormExtra from "./FormExtra";
 import Input from "./Input";
-import { Navigate, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 // useNavigate
-
-
-
 
 const fields=loginFields;
 let fieldState = {};
-fields.forEach(field=>fieldState[field.id] = '');
+fields.forEach(field=>fieldState[field?.id] = '');
 
-export default function Login({setLoginData}){
+const Login=({setLoginData})=>{
     const navigate = useNavigate();
     const[loginState,setLoginState] = useState(fieldState);
     // const router =
@@ -77,3 +76,5 @@ export default function Login({setLoginData}){
         </form>
     )
 }
+
+export default Login;

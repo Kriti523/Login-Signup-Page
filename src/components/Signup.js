@@ -1,3 +1,5 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/prop-types */
 import { SignupFields } from '../constants/formFields';
 import FormAction from './FormAction';
 import Input from './Input';

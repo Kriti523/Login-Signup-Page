@@ -3,8 +3,8 @@
 import Header from "../components/header";
 import Signup from "../components/Signup";
 
+// SignupPage component
 export default function SignupPage({signupState, setSignupState}){
-    // console.log('first', first)
     return(
         <>
             <Header

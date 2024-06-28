@@ -3,53 +3,58 @@
 import { SignupFields } from '../constants/formFields';
 import FormAction from './FormAction';
 import Input from './Input';
+import { useNavigate } from 'react-router-dom';
 
+// Define fields from SignupFields
+const fields = SignupFields;
 
-const fields=SignupFields;
-let fieldsState={};
+// Initialize field state
+let fieldsState = {};
+fields.forEach(field => fieldsState[field.id] = '');
 
-fields.forEach(field => fieldsState[field.id]='');
+// Signup component
+export default function Signup({ signupState, setSignupState }) {
+    // Handle input change
+    const navigate = useNavigate();
+    const handleChange = (e) => setSignupState({ ...signupState, [e.target.id]: e.target.value });
 
-export default function Signup({signupState, setSignupState}){
-    // const [signupState,setSignupState]=useState(fieldsState);
-
-    const handleChange=(e)=>setSignupState({...signupState,[e.target.id]:e.target.value});
-
-    const handleSumbit=(e)=>{
+    // Handle form submission
+    const handleSubmit = (e) => {
         e.preventDefault();
         createAccount();
-    }
-    const createAccount=()=>{
-      const users = JSON.parse(localStorage.getItem('users')) || [];
-      console.log("Existing users:", users);
-      console.log("Signup state:", signupState);
+    };
 
-      console.log('signupState', signupState);
-      if(signupState.password !== signupState.confirmPassword) {
-        console.log("Passwords do not match!");
-        alert("Passwords do not match!");
-        return;
-      };
-console.log('signupState', signupState.username)
-      const userExists = users.some(user => user.email === signupState.email);
-  
-      if (userExists) {
-        console.log('User already exists!');
-        alert("User already exist!");
-        
-      } else {
-        users.push(signupState);
-        localStorage.setItem('users', JSON.stringify(users));
-        console.log('Account created successfully!');
-        alert("'Account created successfully!'")
-        
-      }
-    }
-    return(
-        <form className="mt-2 space-y-6" onSubmit={handleSumbit}>
-        <div className="mt-[-200px]">
-        {
-                fields.map(field=>
+    // Create account
+    const createAccount = () => {
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        console.log("Existing users:", users);
+        console.log("Signup state:", signupState);
+
+        // Check if passwords match
+        if (signupState.password !== signupState.confirmPassword) {
+            console.log("Passwords do not match!");
+            alert("Passwords do not match!");
+            return;
+        }
+
+        // Check if user already exists
+        const userExists = users.some(user => user.email === signupState.email);
+        if (userExists) {
+            console.log('User already exists!');
+            alert("User already exists!");
+        } else {
+            users.push(signupState);
+            localStorage.setItem('users', JSON.stringify(users));
+            console.log('Account created successfully!');
+            navigate('/welcome');
+        }
+    };
+
+    return (
+        <form className="mt-2 space-y-6" onSubmit={handleSubmit}>
+            <div className="mt-[-200px]">
+                {
+                    fields.map(field =>
                         <Input
                             key={field.id}
                             handleChange={handleChange}
@@ -61,15 +66,11 @@ console.log('signupState', signupState.username)
                             type={field.type}
                             isRequired={field.isRequired}
                             placeholder={field.placeholder}
-                    />
-                
-                )
-            }
-          <FormAction handleSumbit={handleSumbit} text="Signup" />
-        </div>
-
-         
-
-      </form>
-    )
+                        />
+                    )
+                }
+                <FormAction handleSubmit={handleSubmit} text="Signup" />
+            </div>
+        </form>
+    );
 }
